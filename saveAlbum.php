@@ -29,9 +29,12 @@
     $cmd->bindParam(':year', $year, PDO::PARAM_INT, 4);
     $cmd->bindParam(':artist', $artist, PDO::PARAM_STR, 50);
 
+    //step 4 - execute
+    $cmd->execute();
 
-//step 4 - execute
     //step 5 - disconnect from database
+    $conn = null;
+
     //step 6 - redirect to the albums page
 
 ?>
