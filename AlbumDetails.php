@@ -30,12 +30,43 @@
                 <label for="artist" class="col-sm-1">Artist: *</label>
                 <input name="artist" id="artist" required placeholder="Artist Name"/>
             </fieldset>
+
+            <fieldset>
+                <label for="genre" class="col-sm-1">Genre: *</label>
+                <select name="genre" id="genre">
+                    <?php
+                        //Step 1 - connect to the DB
+                        $conn = new PDO('mysql:host=localhost;dbname=php','root','admin');
+                        $conn->setAttribute(PDO::ERRMODE_EXCEPTION);
+
+                        //Step 2 - create the SQL statement
+                        $sql = "SELECT * FROM genres";
+
+                        //Step 3 - prepare & execute the SQL statement
+                        $cmd = $conn->prepare($sql);
+                        $cmd->execute();
+                        $genres = $cmd->fetchAll();
+
+                        //Step 4 - disconnect from the DB
+                        $conn = null;
+
+                        //Step 5 - loop over the results to build the list with <option> </option>
+                        foreach ($genres as $genre)
+                        {
+                            echo '<option>'.$genre['genre'].'</option>';
+                        }
+
+                    ?>
+                </select>
+            </fieldset>
+
             <button class="btn btn-success col-sm-offset-1">Save</button>
 
 
         </form>
 
     </main>
+
 
 </body>
 

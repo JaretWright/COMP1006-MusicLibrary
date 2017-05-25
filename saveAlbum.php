@@ -10,17 +10,14 @@
     $title = $_POST['title'];
     $year = $_POST['year'];
     $artist = $_POST['artist'];
-
-    echo 'title: '.$title.'<br />';
-    echo 'year: '.$year.'<br />';
-    echo 'artist: '.$artist.'<br />';
+    $genre = $_POST['genre'];
 
     //step 1 - connect to the database
-    $conn = new PDO('mysql:host=aws.computerstudi.es;dbname=gc500182472',
-                'gc500182472', 'EInCI-ksZ_');
+    $conn = new PDO('mysql:host=localhost;dbname=php','root', 'admin');
 
     //step 2 - create the SQL command to INSERT a record
-    $sql = "INSERT INTO albums (title, year, artist) VALUES (:title, :year, :artist);";
+    $sql = "INSERT INTO albums (title,   year,  artist,  genre) 
+                        VALUES (:title, :year, :artist, :genre);";
 
 
     //step 3 - prepare the SQL command and bind the arguments to prevent SQL injection
@@ -36,7 +33,7 @@
     $conn = null;
 
     //step 6 - redirect to the albums page
-
+    header('location:albums.php');
 ?>
 </body>
 

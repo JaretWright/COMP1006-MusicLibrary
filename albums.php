@@ -19,8 +19,7 @@
     <?php
 
         //step 1 - connect to the database
-        $conn = new PDO('mysql:host=aws.computerstudi.es;dbname=gc500182472',
-                'gc500182472', 'EInCI-ksZ_');
+        $conn = new PDO('mysql:host=localhost;dbname=php', 'root', 'admin');
 
         //step 2 - create a SQL command
         $sql = "SELECT * FROM albums";
