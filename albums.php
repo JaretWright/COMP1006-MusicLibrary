@@ -40,6 +40,7 @@
                 <th>Year</th>
                 <th>Artist</th>
                 <th>Genre</th>
+                <th>Edit</th>
                 <th>Delete</th></tr>';
 
         foreach($albums as $album)
@@ -48,6 +49,8 @@
                       <td>'.$album['year'].'</td>
                       <td>'.$album['artist'].'</td>
                       <td>'.$album['genre'].'</td>
+                      <td><a href="AlbumDetails.php?albumID='.$album['albumID'].'"
+                                class="btn btn-primary">Edit</a></td>
                       <td><a href="deleteAlbum.php?albumID='.$album['albumID'].'" 
                                 class="btn btn-danger">Delete</a></td></tr>';
         }
