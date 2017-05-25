@@ -38,13 +38,15 @@
         echo '<table class="table table-striped table-hover">
             <tr><th>Title</th>
                 <th>Year</th>
-                <th>Artist</th></tr>';
+                <th>Artist</th>
+                <th>Genre</th></tr>';
 
         foreach($albums as $album)
         {
             echo '<tr><td>'.$album['title'].'</td>
                       <td>'.$album['year'].'</td>
-                      <td>'.$album['artist'].'</td></tr>';
+                      <td>'.$album['artist'].'</td>
+                      <td>'.$album['genre'].'</td></tr>';
         }
 
         echo '</table>';

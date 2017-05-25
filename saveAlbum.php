@@ -25,6 +25,7 @@
     $cmd->bindParam(':title', $title, PDO::PARAM_STR, 50);
     $cmd->bindParam(':year', $year, PDO::PARAM_INT, 4);
     $cmd->bindParam(':artist', $artist, PDO::PARAM_STR, 50);
+    $cmd->bindParam(':genre', $genre, PDO::PARAM_STR, 20);
 
     //step 4 - execute
     $cmd->execute();
