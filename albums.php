@@ -39,14 +39,17 @@
             <tr><th>Title</th>
                 <th>Year</th>
                 <th>Artist</th>
-                <th>Genre</th></tr>';
+                <th>Genre</th>
+                <th>Delete</th></tr>';
 
         foreach($albums as $album)
         {
             echo '<tr><td>'.$album['title'].'</td>
                       <td>'.$album['year'].'</td>
                       <td>'.$album['artist'].'</td>
-                      <td>'.$album['genre'].'</td></tr>';
+                      <td>'.$album['genre'].'</td>
+                      <td><a href="deleteAlbum.php?albumID='.$album['albumID'].'" 
+                                class="btn btn-danger">Delete</a></td></tr>';
         }
 
         echo '</table>';
