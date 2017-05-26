@@ -7,6 +7,7 @@
 
 <body>
 <?php
+    $albumID = $_POST['albumID'];
     $title = $_POST['title'];
     $year = $_POST['year'];
     $artist = $_POST['artist'];
@@ -15,9 +16,18 @@
     //step 1 - connect to the database
     $conn = new PDO('mysql:host=localhost;dbname=php','root', 'admin');
 
-    //step 2 - create the SQL command to INSERT a record
-    $sql = "INSERT INTO albums (title,   year,  artist,  genre) 
+    //step 2 - create the SQL command to INSERT or UPDATE a record
+    if (!empty($albumID)){
+        $sql = "UPDATE albums  
+                   SET title = :title,
+                       year = :year,
+                       artist = :artist,
+                       genre = :genre
+                WHERE albumID = :albumID";}
+    else {
+        $sql = "INSERT INTO albums (title,   year,  artist,  genre) 
                         VALUES (:title, :year, :artist, :genre);";
+    }
 
 
     //step 3 - prepare the SQL command and bind the arguments to prevent SQL injection

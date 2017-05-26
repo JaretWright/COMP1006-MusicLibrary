@@ -84,10 +84,14 @@
                         //Step 4 - loop over the results to build the list with <option> </option>
                         foreach ($genres as $genre)
                         {
-                            if ($genrePicked == $genre['genre'])
+                            if ($genrePicked == $genre['genre']){
                                 echo '<option selected>'.$genre['genre'].'</option>';
-                            else
+                            }
+
+                            else{
                                 echo '<option>'.$genre['genre'].'</option>';
+                            }
+
                         }
 
                         //Step 5 - disconnect from the DB
@@ -96,7 +100,7 @@
                     ?>
                 </select>
             </fieldset>
-
+            <input name="albumID" id="albumID" value="<?php echo $albumID?>" type="hidden"/>
             <button class="btn btn-success col-sm-offset-1">Save</button>
 
 
