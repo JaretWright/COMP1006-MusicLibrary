@@ -15,6 +15,7 @@
 
     //step 1 - connect to the database
     $conn = new PDO('mysql:host=localhost;dbname=php','root', 'admin');
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     //step 2 - create the SQL command to INSERT or UPDATE a record
     if (!empty($albumID)){
@@ -36,6 +37,9 @@
     $cmd->bindParam(':year', $year, PDO::PARAM_INT, 4);
     $cmd->bindParam(':artist', $artist, PDO::PARAM_STR, 50);
     $cmd->bindParam(':genre', $genre, PDO::PARAM_STR, 20);
+
+    if (!empty($albumID))
+        $cmd->bindParam(':albumID', $albumID, PDO::PARAM_INT);
 
     //step 4 - execute
     $cmd->execute();
