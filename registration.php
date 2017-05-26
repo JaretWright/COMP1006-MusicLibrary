@@ -13,7 +13,13 @@
 <body>
     <main class="container">
     <h1>User Registration</h1>
-    <div class="alert alert-info" id="message">Please create your account</div>
+        <?php
+            if (!empty($_GET['errorMessage']))
+                echo '<div class="alert alert-danger" id="message">Email address already exists</div>';
+            else
+                echo '<div class="alert alert-info" id="message">Please create your account</div>';
+        ?>
+
         <form method="post" action="save-registration.php">
             <fieldset class="form-group">
                 <label for="email" class="col-sm-2">Email: *</label>
@@ -32,8 +38,7 @@
                 <label for="confirm" class="col-sm-2">Re-enter Password: </label>
                 <input name="confirm" id="confirm" type="password" placeholder="Confirm Password"/>
             </fieldset>
-
-
+            <button class="btn btn-success col-sm-offset-2">Register</button>
         </form>
     </main>
 </body>
